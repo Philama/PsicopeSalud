@@ -1,0 +1,14 @@
+title: Psicope.Salud
+email: psicopesalud@gmail.com
+description: >- 
+  Servicios de psicopedagogía y terapia familiar por Jackeline Zenosain.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
+twitter_username: your_twitter
+github_username:  your_github
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
