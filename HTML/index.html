@@ -7,7 +7,142 @@
     <link rel="icon" href="https://lh3.googleusercontent.com/pw/AP1GczM5slBg6xr8eYTVDGz6Yf93e4jqbN-riuorM_StQDV098cCLwfyfAu_HXszvqd-Du6R53k6jo5QdQ2p9wYwOYfLrIk2Vm4hAMS4CoWFaKO_CD2MwA=w2400" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+/* Sticky header styles */
+.sticky-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Body background */
+body {
+    background: #f0f4f8;
+}
+
+/* Section title font */
+.section-title {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Service card styles */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Container max width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contact container styles */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Icon styles */
+.header-icon, .sobre-mi-icon {
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Rounded corners */
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+/* Shadow styles */
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    .header-icon, .sobre-mi-icon {
+        width: 60px;
+        height: 60px;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .service-card {
+        margin-bottom: 1.5rem;
+    }
+    .sobre-mi-icon {
+        width: 70%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    .header-icon, .sobre-mi-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    .mobile-menu {
+        display: block;
+    }
+    .desktop-menu {
+        display: none;
+    }
+    .sobre-mi-icon {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-icon, .sobre-mi-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    .sobre-mi-icon {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1E3A8A;
+    padding: 1rem;
+}
+.mobile-menu a {
+    margin: 0.5rem 0;
+}
+</style>
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -21,20 +156,29 @@
                     <p>Psicopedagoga</p>
                 </div>
             </div>
-            <nav class="flex items-center space-x-4">
+            <nav class="desktop-menu flex items-center space-x-4">
                 <a href="#" class="hover:text-gray-200">Inicio</a>
                 <a href="#sobremi" class="hover:text-gray-200">Sobre mí</a>
                 <a href="#servicios" class="hover:text-gray-200">Servicios</a>
                 <a href="#contacto" class="bg-green-500 hover:bg-green-700 py-2 px-4 rounded">Contacto</a>
             </nav>
+            <div class="mobile-menu-button md:hidden">
+                <button onclick="toggleMobileMenu()">☰</button>
+            </div>
         </div>
+        <nav class="mobile-menu md:hidden">
+            <a href="#" class="hover:text-gray-200">Inicio</a>
+            <a href="#sobremi" class="hover:text-gray-200">Sobre mí</a>
+            <a href="#servicios" class="hover:text-gray-200">Servicios</a>
+            <a href="#contacto" class="bg-green-500 hover:bg-green-700 py-2 px-4 rounded">Contacto</a>
+        </nav>
     </header>
 
     <!-- Sección "Sobre mí" -->
     <section id="sobremi" class="container mx-auto py-12 px-4 md:px-8">
         <h2 class="text-3xl font-bold mb-6 section-title text-center">Lic Jackeline Zenosain</h2>
         <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczNoZXUtFTTpzOjf-JsSiaZmokLCKg7u0MXYRfrf5QfViR_HrucUBSrG4rgGIIglRZnQyHgucG_HzcNGKRplf4_AG_h3xbkAH-cszJ1ormy_LnDMlA=w2400" alt="Foto de la psicopedagoga" class="h-80 w-82 sobre-mi-icon mx-auto md:mx-0">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczNoZXUtFTTpzOjf-JsSiaZmokLCKg7u0MXYRfrf5QfViR_HrucUBSrG4rgGIIglRZnQyHgucG_HzcNGKRplf4_AG_h3xbkAH-cszJ1ormy_LnDMlA=w2400" alt="Foto de la psicopedagoga" class="h-80 w-80 md:w-96 md:h-96 sobre-mi-icon mx-auto md:mx-0">
             <div class="mt-8 md:mt-0">
                 <p class="text-gray-700 mb-4">
                     Soy Jackeline Zenosain, psicopedagoga y terapeuta familiar. Me especializo en:
@@ -175,5 +319,11 @@
         </a>
     </footer>
 
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>
